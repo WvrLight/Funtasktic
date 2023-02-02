@@ -1,0 +1,939 @@
+/* Landing/Sign Up Page Designs */
+.LandingPage {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+}
+
+.LandingPage .Body {
+    display: flex;
+    flex-direction: column;
+    object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-image: url(../images/background_1.png);
+}
+
+.LandingPage .NavBar {
+    background-color: #11111150;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    padding: 0 10px 0 10px;
+    height: 10vh;
+}
+
+.LandingPage .Navigations {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.LandingPage .Logo img {
+    object-fit: contain;
+    height: 5vh;
+}
+
+.LandingPage .Navigations button {
+    width: 10vw;
+    font-size: clamp(1.25vw, 50%, 2vw);
+    color: white;
+    border-radius: 10px;
+    background-color: #B67EB7;
+    border-width: 0;
+    font-weight: bold;
+}
+
+.LandingPage .Container {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+    height: 90vh;
+}
+
+.LandingPage .LandingMessage {
+    text-align: left;
+}
+
+.LandingPage .SignUp {
+    text-align: center;
+}
+
+.LandingPage .InputContainer {
+    background-color: #11111150;
+    width: 40vh;
+    border-radius: 20px;
+    padding: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.LandingPage .SignUpForm input {
+    width: stretch;
+    font-size: 14px;
+    padding: 5px;
+    margin-bottom: 15px;
+    background-color: #6C6A75;
+    color: white;
+    opacity: 1;
+    float: left;
+    border-radius: 5px;
+}
+
+.LandingPage .SignUpForm input::placeholder {
+    color: white;
+    opacity: .5;
+}
+
+.LandingPage .InputContainer button {
+    background-color: #B67EB7;
+    color: white;
+    margin-top: -15px;
+    width: 100px;
+    border-radius: 10px;
+    border-width: 0px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Log In Page Designs */
+.LogInPage {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+}
+
+.LogInPage .Body {
+    display: flex;
+    flex-direction: column;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-image: url(../images/background_2.png);
+}
+
+.LogInPage .NavBar {
+    background-color: #11111150;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    padding: 0 10px 0 10px;
+    height: 10vh;
+}
+
+.LogInPage .Navigations {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.LogInPage .Logo img {
+    object-fit: contain;
+    height: 5vh;
+}
+
+.LogInPage .Navigations button {
+    width: 10vw;
+    font-size: clamp(1.25vw, 50%, 2vw);
+    color: white;
+    border-radius: 10px;
+    background-color: #B67EB7;
+    border-width: 0;
+    font-weight: bold;
+}
+
+.LogInPage .Container {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    color: white;
+}
+
+.LogInPage .LogIn {
+    text-align: center;
+}
+
+.LogInPage .InputContainer {
+
+    background-color: #11111150;
+    width: 40vh;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.LogInPage .LogInForm input {
+    width: stretch;
+    font-size: 14px;
+    padding: 5px;
+    margin-bottom: 15px;
+    background-color: #6C6A75;
+    color: white;
+    opacity: 1;
+    float: left;
+    border-radius: 5px;
+}
+
+.LogInPage .LogInForm label {
+    font-size: 20px;
+    color: white;
+    float: left;
+}
+
+.LogInPage .LogInForm input::placeholder {
+    color: white;
+    opacity: .5;
+}
+
+.LogInPage .InputContainer button {
+    font-size: 18px;
+    border-radius: 10px;
+    background-color: #B67EB7;
+    border-width: 0px;
+    padding: 5px;
+    color: white;
+    width: 100px;
+}
+
+/* Main Layout Designs*/
+.MainLayout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Main Navbar Designs */
+.MainNavBar {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    background-color: grey;
+    height: 10%;
+    width: 100%;
+}
+
+.MainNavBar .Navigations {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px 0 10px;
+    width: 100%;
+}
+
+.MainNavBar .Links {
+    display: flex;
+    flex-direction: row;
+    margin-right: 5vw;
+    align-items: center;
+}
+
+.MainNavBar .Logo {
+    margin-right: 5vw;
+}
+
+.MainNavBar .Logo img {
+    object-fit: contain;
+    height: 5vh;
+}
+
+.MainNavBar .Tabs {
+    margin: 0 10px 0 10px;
+    color: white;
+    font-size: clamp(1.5vw, 50%, 2vw);
+    text-decoration: none;
+}
+
+.MainNavBar .Navigations button {
+    width: 10vw;
+    font-size: clamp(1.25vw, 50%, 2vw);
+    color: grey;
+    border-radius: 10px;
+    background-color: none;
+    border-width: 0;
+    font-weight: bold;
+}
+
+/* Menu Designs */
+.MenuPage {
+    height: 90%;
+    width: 100%;
+    object-fit: cover;
+    display: flex;
+    flex-direction: column;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-image: url(../images/background_3.png);
+    justify-content: center;
+}
+
+.MenuPage .WelcomeMessage {
+    color: grey;
+    text-align: left;
+    margin-left: 12vw;
+    font-size: clamp(1.5vw, 50%, 2.5vw);
+}
+
+/* Profile Designs */
+.ProfilePage {
+    height: 90%;
+    width: 100%;
+    background-color: #E1E1E1;
+    overflow-y: hidden;
+}
+
+.ProfilePage .ProfileContainer {
+    display: flex;
+    flex-flow: row wrap;
+    width: stretch;
+    overflow-y: auto;
+    overflow-x: hidden;
+    justify-content: center;
+    height: 35%;
+    width: 100%;
+}
+
+.ProfilePage .ProfileImage {
+    width: 190px;
+    height: 190px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.ProfilePage .ProfileImage img {
+    border-radius: 20px;
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+}
+
+.ProfilePage .ProfileImage div {
+    background-color: gray;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.ProfilePage .ProfileImage p {
+    font-size: 12.5px;
+    color: white;
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.ProfilePage .ProfileDetailsContainer {
+    display: flex;
+    width: 85%;
+}
+
+.ProfilePage .ProfileDetails {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    height: 100%;
+}
+
+.ProfilePage .EditProfileDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 10%;
+    height: 100%;
+}
+
+.ProfilePage .ProfileInformation {
+    display: flex;
+    flex-direction: row;
+    color: black;
+}
+
+.ProfilePage .Label {
+    background-color: #B972CD;
+    font-size: min(2vw, 14px);
+    height: fit-content;
+    margin: 10px;
+    text-align: center;
+    border-radius: 10px;
+    width: 100px;
+    padding: 3px;
+    font-weight: bolder;
+}
+
+.ProfilePage .Information {
+    font-size: min(2vw, 12px);
+    margin: 10px;
+    padding: 3px;
+    align-items: center;
+    text-align: justify;
+    width: 85%;
+}
+
+.ProfilePage hr {
+    border: 2px dashed black;
+    width: 98%;
+}
+
+.ProfilePage .AccountStats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 61.9%;
+}
+
+.ProfilePage .ProgressBarContainer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.ProfilePage .ProgressBarLabel {
+    background-color: orange;
+    padding: 5px 10px 5px 10px;
+    font-weight: bold;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+.ProfilePage .UserStats {
+    display: flex;
+    flex-flow: row wrap;
+    width: 60vw;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+}
+
+.ProfilePage .StatsDataContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.ProfilePage .StatsDataLabel {
+    background-color: orange;
+    padding: 5px 10px 5px 10px;
+    font-weight: bold;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    width: 200px;
+}
+
+.ProfilePage .StatsDataGraph {
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ProfilePage .TaskAnalysisContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.ProfilePage .TaskAnalysisLabel {
+    background-color: orange;
+    padding: 5px 10px 5px 10px;
+    font-weight: bold;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    width: 200px;
+}
+
+.ProfilePage .TaskAnalysisGraph {
+    width: 300px;
+    height: 300px;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ProfilePage .Posts {
+    width: 60vw;
+    padding: 10px;
+    margin: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px gray;
+    margin-bottom: 30px;
+}
+
+.ProfilePage .Posts .CommentHeader {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    text-align: center;
+}
+
+.ProfilePage .Posts .CommentHeader:before {
+    content: " ";
+    display: block;
+    height: 2px;
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: -40px;
+    background: grey;
+}
+
+.ProfilePage .Posts .CommentHeader:after {
+    content: " ";
+    height: 2px;
+    width: 50%;
+    background: grey;
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: -40px;
+}
+
+.ProfilePage .Posts .Comment {
+    width: stretch;
+    padding: 10px;
+    background-color: #E1E1E1;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.ProfilePage .Posts .CommentAuthor {
+    color: #BD3838;
+    font-size: 22px;
+}
+
+.ProfilePage .Posts .CommentText {
+    color: black;
+    font-size: 22px;
+}
+
+.ProfilePage .Posts .Reply {
+    width: stretch;
+    padding: 10px;
+    background-color: #E1E1E1;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.ProfilePage .Posts .CommentForm {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    justify-content: space-between;
+}
+
+.ProfilePage .Posts .CommentFormInput {
+    border-radius: 10px;
+    width: 50vw;
+    height: 40px;
+    padding: 10px;
+    font-size: 22px;
+}
+
+.ProfilePage .Posts .CommentFormButton {
+    width: 150px;
+    background-color: rgba(85, 83, 91, 0.6);
+    color: #FFFBFB;
+    border-radius: 10px;
+    font-size: 22px;
+}
+
+/* Task Page Designs*/
+.TaskPage {
+    height: 90%;
+    width: 100%;
+    background-color: #E1E1E1;
+    display: flex;
+    flex-direction: row;
+}
+
+.TaskPage .LeftColumn {
+    height: 100%;
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+}
+
+.TaskPage .AddTaskForm {
+    padding: 10px;
+    margin: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px gray;
+}
+
+.TaskPage .AddTaskForm input {
+    width: stretch;
+    font-size: 18px;
+    border-radius: 5px;
+    border-width: 1px;
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color: #00000045;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.TaskPage .AddTaskForm input::placeholder {
+    color: white;
+    opacity: .75;
+}
+
+.TaskPage .AddTaskButtons {
+    display: flex;
+    width: auto;
+    size: 1em;
+    margin: 2.5px;
+}
+
+.TaskPage .TaskList {
+    height: stretch;
+    margin: 10px;
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    border-radius: 10px;
+    overflow-y: auto;
+    box-shadow: 5px 5px 10px gray;
+}
+
+.TaskPage .TaskList .TaskListContainer {
+    border-radius: 15px;
+    width: 100%;
+}
+
+.TaskPage .TaskList .TaskListContainer .TaskTypeContainer {
+
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.TaskPage .TaskList .TaskTypeContainer .TaskTypeHeader {
+    color: white;
+    cursor: pointer;
+    font-size: 24px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    width: 100%;
+    text-align: left;
+    border: none;
+    border-radius: 5px;
+}
+
+.TaskPage .TaskList .TaskTypeContainer .TaskTypeHeader:before {
+    display: inline-block;
+    content: '';
+    height: 15px;
+    width: 15px;
+    margin-right: 10px;
+    margin-left: 10px;
+    border-bottom: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: rotate(-45deg);
+}
+
+.TaskPage .TaskList .TaskTypeContainer .TaskTypeHeader[aria-expanded='true']::before,
+.TaskTypeHeader[aria-selected='true']::before {
+    transform: rotate(45deg);
+}
+
+.TaskPage .TaskList .TaskTypeContainer .TaskTypeList {
+    font-size: 16px;
+    padding: 20px;
+    animation: fadein 0.35s ease-in;
+}
+
+.TaskPage .TaskList .TaskTypeContainer .TaskTypeList .TaskTypeListItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.TaskPage .RightColumn {
+    height: 100%;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+}
+
+.TaskPage .TaskInfo {
+    height: 55%;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px gray;
+}
+
+.TaskPage .TaskArchive {
+    height: 45%;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.TaskPage .TaskArchive .TaskArchiveContainer {
+    border-radius: 15px;
+    width: 100%;
+}
+
+.TaskPage .TaskArchive .TaskArchiveContainer .TaskArchiveListContainer {
+
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 5px 5px 10px gray;
+}
+
+.TaskPage .TaskArchive .TaskArchiveContainer .TaskArchiveHeader {
+    color: white;
+    cursor: pointer;
+    font-size: 24px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    width: 100%;
+    text-align: left;
+    border: none;
+    border-radius: 15px;
+}
+
+.TaskPage .TaskArchive .TaskArchiveContainer .TaskArchiveHeader:before {
+    display: inline-block;
+    content: '';
+    height: 15px;
+    width: 15px;
+    margin-right: 10px;
+    margin-left: 10px;
+    border-bottom: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: rotate(-45deg);
+}
+
+.TaskPage .TaskArchive .TaskArchiveContainer .TaskArchiveHeader[aria-expanded='true']::before,
+.TaskArchiveHeader[aria-selected='true']::before {
+    transform: rotate(45deg);
+}
+
+.TaskPage .TaskArchive .TaskArchiveContainer .TaskArchiveList {
+    font-size: 16px;
+    padding: 20px;
+    animation: fadein 0.35s ease-in;
+}
+
+.TaskPage .TaskArchive .TaskArchiveContainer .TaskArchiveList .TaskArchiveListItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* Calendar Page Designs*/
+.CalendarPage {
+    height: 90%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #E1E1E1;
+}
+
+.CalendarPage .CalendarContainer {
+    width: 70vw;
+    border: 5px solid #E69A27;
+    color: #E69A27;
+    border-radius: 25px;
+    padding: 10px;
+    overflow-y: auto;
+
+    --fc-small-font-size: .85em;
+    --fc-page-bg-color: #E69A27;
+    --fc-neutral-bg-color: rgba(208, 208, 208, 0.3);
+    --fc-neutral-text-color: #808080;
+    --fc-border-color: #E69A27;
+
+    --fc-button-text-color: #fff;
+    --fc-button-bg-color: #E69A27;
+    --fc-button-border-color: #E69A27;
+    --fc-button-hover-bg-color: #885b17;
+    --fc-button-hover-border-color: #815717;
+    --fc-button-active-bg-color: #815717;
+    --fc-button-active-border-color: #664412;
+
+    --fc-event-bg-color: #885b17;
+    --fc-event-border-color: #885b17;
+    --fc-event-text-color: #fff;
+    --fc-event-selected-overlay-color: rgba(0, 0, 0, 0.25);
+
+    --fc-more-link-bg-color: #d0d0d0;
+    --fc-more-link-text-color: inherit;
+
+    --fc-event-resizer-thickness: 8px;
+    --fc-event-resizer-dot-total-width: 8px;
+    --fc-event-resizer-dot-border-width: 1px;
+
+    --fc-non-business-color: rgba(215, 215, 215, 0.3);
+    --fc-bg-event-color: rgb(143, 223, 130);
+    --fc-bg-event-opacity: 0.3;
+    --fc-highlight-color: rgba(188, 232, 241, 0.3);
+    --fc-today-bg-color: rgba(255, 220, 40, 0.15);
+    --fc-now-indicator-color: red;
+}
+
+.CalendarPage .CalendarContainer a {
+    color: #C4C4C4;
+}
+
+.CalendarPage .CalendarContainer table {
+
+    background-color: #55535B;
+}
+
+/* Friends Page Designs */
+.FriendsPage {
+    height: 90%;
+    width: 100%;
+    background-color: #E1E1E1;
+    display: flex;
+    flex-direction: row;
+}
+
+.FriendsPage .FriendsListColumn {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+}
+
+.FriendsPage .FriendsList {
+    height: 100%;
+    margin: 10px;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    background-color: white;
+    box-shadow: 5px 5px 10px gray;
+    padding: 10px;
+}
+
+.FriendsPage .FriendsList ul {
+    margin-top: 25px;
+    font-size: 25px;
+    line-height: 2em;
+    font-weight: bold;
+    list-style-type: none;
+    justify-content: space-between;
+}
+
+.FriendsPage .FriendsList .Friends .Buttons {
+    align-content: right;
+    margin: 2.5px;
+}
+
+.FriendsPage .FriendRequestColumn {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.FriendsPage .FriendRequest {
+    height: 100%;
+    margin: 10px;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    color: white;
+    background-color: #55535B;
+    box-shadow: 5px 5px 10px gray;
+    padding: 10px;
+}
+
+.FriendsPage .FriendRequest .Requests {
+    margin-top: 25px;
+    font-size: 25px;
+    line-height: 2em;
+    font-weight: bold;
+    list-style-type: none;
+    width: stretch;
+}
+
+.FriendsPage .FriendRequest .Requests .Request {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.FriendsPage .FriendRequest .Requests .Buttons {
+    align-content: right;
+    margin: 2.5px;
+}
+
+.FriendsPage .AddFriendsColumn {
+    height: 91.5%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+    margin-right: 15px;
+}
+
+.FriendsPage .AddFriends {
+    height: 100%;
+    margin: 10px;
+    text-align: center;
+    background-color: white;
+    box-shadow: 5px 5px 10px gray;
+}
+
+.FriendsPage .AddFriendsForm input {
+    width: 80%;
+    font-size: 18px;
+    border-radius: 5px;
+    border-width: 1px;
+    padding: 5px;
+    margin: 20px;
+    background-color: #E1E1E1;
+}
+
+.FriendsPage .AddFriendsForm button {
+    background-color: #55535B;
+    color: white;
+    margin-top: -15px;
+    width: 100px;
+    border-radius: 10px;
+    border-width: 0px;
+    font-size: 16px;
+    font-weight: bold;
+}
