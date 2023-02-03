@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import { IconButton, Button, Tooltip, Whisper } from "rsuite"; // npm i rsuite --save
 import { Detail, Calendar, Rate, Tag } from '@rsuite/icons'; // npm install rsuite @rsuite/icons
 import DescriptionModal from '../modals/Description_Modal';
@@ -22,6 +23,8 @@ import { MdCheckCircle } from "react-icons/md";
 import { RiDeleteBinLine } from 'react-icons/ri';
 
 export default function Task() {
+  const navigate = useNavigate()
+
   const ButtonStyle = { margin: "0px 5px", left: "-5px"};
   const [showButtons, setShowButtons] = useState(false)
   const [showDeM, setShowDeM] = useState(false)
@@ -59,6 +62,20 @@ export default function Task() {
   const [work_tasks, setWorkTasks] = useState([])
   const [completed_tasks, setCompletedTasks] = useState([])
 
+  useEffect(() => {
+    checkLoginStatus()
+  }, []);
+
+  function checkLoginStatus() {
+    if (sessionStorage.getItem("funtasktic-id") === null) {
+      alert('Please log in!')
+      navigate('../../')
+    }
+    else {
+      getUserTasks()
+    }
+  }
+
   function handleCompleteTask(taskId, taskType) {
     const task_obj = {
       'taskId': taskId,
@@ -77,7 +94,7 @@ export default function Task() {
     var stat_agi = 0
     var stat_vit = 0
 
-    fetch(`http://localhost:3001/user/get?id=${task_obj.userId}`, {
+    fetch(`https://funtasktic-db.fly.dev/user/get?id=${task_obj.userId}`, {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -123,7 +140,7 @@ export default function Task() {
         }
       }) 
 
-    fetch('http://localhost:3001/task/complete_task', {
+    fetch('https://funtasktic-db.fly.dev/task/complete_task', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -142,7 +159,7 @@ export default function Task() {
           else setLevelUpState(false)
         })
 
-    fetch(`http://localhost:3001/user/get?id=${task_obj.userId}`, {
+    fetch(`https://funtasktic-db.fly.dev/user/get?id=${task_obj.userId}`, {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -172,7 +189,7 @@ export default function Task() {
   const getUserTasks = () => {
     const id = sessionStorage.getItem('funtasktic-id')
 
-    let url = `http://localhost:3001/task/get?id=${id}`
+    let url = `https://funtasktic-db.fly.dev/task/get?id=${id}`
 
     fetch(url, {
       headers: {
@@ -217,7 +234,7 @@ export default function Task() {
     }
     console.log(task_obj)
 
-    fetch('http://localhost:3001/task/add_task', {
+    fetch('https://funtasktic-db.fly.dev/task/add_task', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -225,15 +242,15 @@ export default function Task() {
       body: JSON.stringify(task_obj),
     })
       .then(response => {
+        getUserTasks()
         return response.text();
       })
 
-    getUserTasks()
     setShowTASM(true)
   }
 
   function handleDeleteTask(id) {
-    let url = `http://localhost:3001/task/delete_task?id=${id}`
+    let url = `https://funtasktic-db.fly.dev/task/delete_task?id=${id}`
 
     fetch(url, {
       method: 'DELETE',
@@ -246,10 +263,6 @@ export default function Task() {
         return response.text();
       })
   }
-
-  useEffect(() => {
-    getUserTasks()
-  }, []); 
 
   return (
     <div className="TaskPage">

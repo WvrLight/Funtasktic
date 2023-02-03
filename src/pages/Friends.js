@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AiOutlineLayout, AiFillCheckCircle, AiFillCloseCircle }  from 'react-icons/ai';
 import "./pages.css";
 import RequestAcceptedSuccessfullyModal from '../modals/Request_Accepted_Successfully_Modal';
@@ -19,6 +19,20 @@ export default function Friends() {
 
     const user_id = parseInt(sessionStorage.getItem('funtasktic-id'))
 
+    useEffect(() => {
+        checkLoginStatus()
+    }, []);
+
+    function checkLoginStatus() {
+        if (sessionStorage.getItem("funtasktic-id") === null) {
+            alert('Please log in!')
+            navigate('../../')
+        }
+        else {
+            getFriends()
+        }
+    }
+
     const handleAddFriend = (event) => {
         event.preventDefault()
 
@@ -32,7 +46,7 @@ export default function Friends() {
 
         // console.log(user_obj)
 
-        fetch('http://localhost:3001/user/friend/send', {
+        fetch('https://funtasktic-db.fly.dev/user/friend/send', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -71,12 +85,12 @@ export default function Friends() {
         let method = ''
 
         if (result === 1) {
-            result_url = `http://localhost:3001/user/friend/accept?id=${id}`
+            result_url = `https://funtasktic-db.fly.dev/user/friend/accept?id=${id}`
             method = 'GET'
             setShowRASM(true)
         }
         else {
-            result_url = `http://localhost:3001/user/friend/reject?id=${id}`
+            result_url = `https://funtasktic-db.fly.dev/user/friend/reject?id=${id}`
             method = 'DELETE'
             setShowRRSM(true)
         }
@@ -98,8 +112,8 @@ export default function Friends() {
         const id = user_id
         const user = parseInt(sessionStorage.getItem('funtasktic-username'))
 
-        let friends_url = `http://localhost:3001/user/friend/get?id=${id}`
-        let requests_url = `http://localhost:3001/user/friend/get/requests?id=${id}`
+        let friends_url = `https://funtasktic-db.fly.dev/user/friend/get?id=${id}`
+        let requests_url = `https://funtasktic-db.fly.dev/user/friend/get/requests?id=${id}`
 
         setFriendList([])
         setFriendRequests([])
@@ -141,10 +155,6 @@ export default function Friends() {
         if (friend_status.senderid === current_user_id) return friend_status.targetusername
         else return friend_status.senderusername
     }
-
-    useEffect(() => {
-        getFriends()
-    }, []);
 
   return (
     <div className="FriendsPage">

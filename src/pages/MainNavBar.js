@@ -8,6 +8,14 @@ export default function MainNavBar() {
   const navigate = useNavigate();
   const user_url = `profile/${sessionStorage.getItem('funtasktic-username')}`
 
+  function logOut() {
+    sessionStorage.removeItem('funtasktic-id')
+    sessionStorage.removeItem('funtasktic-username')
+
+    alert('Logout successful.')
+    navigate('/')
+  }
+
   return (
     <nav className="MainNavBar">
         <div className="Navigations">
@@ -23,7 +31,7 @@ export default function MainNavBar() {
                 <Link className="Tabs" to="friends">Friends</Link>
                 {/* <Link className="Tabs" to="modals">Modals</Link> */}
             </div>
-            <button type="button" onClick={()=>  navigate("/")}>Log Out</button>
+            <button type="button" onClick={()=> logOut()}>Log Out</button>
         </div>
     </nav>
   )

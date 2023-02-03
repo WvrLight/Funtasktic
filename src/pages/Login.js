@@ -11,7 +11,7 @@ export default function Login() {
     const username = event.target.username.value
     const password = event.target.password.value
 
-    let login_url = `http://localhost:3001/user/login?username=${username}&password=${password}`
+    let login_url = `https://funtasktic-db.fly.dev/user/login?username=${username}&password=${password}`
 
     fetch(login_url, {
       headers: {

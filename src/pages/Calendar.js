@@ -67,7 +67,7 @@ export default function Calendar() {
           },
           {
             title: 'Click for Google',
-            url: 'http://google.com/',
+            url: 'https://google.com/',
             start: '2023-01-28'
           }]}
         />

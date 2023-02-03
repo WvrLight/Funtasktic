@@ -17,7 +17,7 @@ export default function DbTest() {
         }
         console.log(JSON.stringify(user_obj))
 
-        fetch('http://localhost:3001/user/add_user', {
+        fetch('https://funtasktic-db.fly.dev/user/add_user', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ export default function DbTest() {
     }
 
     function getDbInfo() {
-        fetch('http://localhost:3001/user')
+        fetch('https://funtasktic-db.fly.dev/user')
             .then(response => {
                 return response.text();
             })
@@ -39,7 +39,7 @@ export default function DbTest() {
                 setUserText(JSON.stringify(JSON.parse(data)["rows"]));
             });
 
-        fetch('http://localhost:3001/task')
+        fetch('https://funtasktic-db.fly.dev/task')
             .then(response => {
                 return response.text();
             })
@@ -54,7 +54,7 @@ export default function DbTest() {
 
         const id = event.target.id.value
 
-        let login_url = `http://localhost:3001/user/delete_user?id=${id}`
+        let login_url = `https://funtasktic-db.fly.dev/user/delete_user?id=${id}`
 
         fetch(login_url, {
             method: 'DELETE',

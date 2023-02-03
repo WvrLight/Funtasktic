@@ -21,7 +21,7 @@ export default function Edit_Profile_Modal(props) {
 
         console.log(user_obj)
         
-        fetch('http://localhost:3001/user/update_user', {
+        fetch('https://funtasktic-db.fly.dev/user/update_user', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

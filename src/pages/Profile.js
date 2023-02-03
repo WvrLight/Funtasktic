@@ -6,9 +6,12 @@ import ProgressBar from "@ramonak/react-progress-bar";
 import DonutChart from 'react-donut-chart';
 import RadarChart from 'react-svg-radar-chart';
 import 'react-svg-radar-chart/build/css/index.css'
+import { useNavigate } from "react-router-dom";
 import { Button, Comment, Form, Header } from 'semantic-ui-react';
 
 export default function Profile() {
+  const navigate = useNavigate()
+
   //State of Edit Profile Modal
   const { current_username } = useParams()
   const [showEPM, setShowEPM] = useState(false);
@@ -30,11 +33,18 @@ export default function Profile() {
   const [statAGIPercent, setStatAGIPercent] = useState(0);
   const [statVITPercent, setStatVITPercent] = useState(0);
 
+  const [statCompletedFitness, setStatCompletedFitness] = useState(0);
+  const [statCompletedSchool, setStatCompletedSchool] = useState(0);
+  const [statCompletedChores, setStatCompletedChores] = useState(0);
+  const [statCompletedHealth, setStatCompletedHealth] = useState(0);
+  const [statCompletedSocial, setStatCompletedSocial] = useState(0);
+  const [statCompletedWork, setStatCompletedWork] = useState(0);
+
   const [postData, setPostData] = useState([]);
   const [topLevelPosts, setTopLevelPosts] = useState([]);
   const [posts, setPosts] = useState();
   const [commentTarget, setCommentTarget] = useState(0);
-  const [commentUser, setCommentUser] = useState('');
+  const [commentUser, setCommentUser] = useState(current_username);
   const [commentText, setCommentText] = useState('');
 
   useEffect(() => {
@@ -46,11 +56,13 @@ export default function Profile() {
   }, [current_username]);
 
   function checkLoginStatus() {
-    if (sessionStorage.getItem("funtasktic-id") != null) {
-      getUserInfo();
+    if (sessionStorage.getItem("funtasktic-id") === null) {
+      alert('Please log in!')
+      navigate('../../')
     }
     else {
-
+      getUserInfo()
+      getCompletedTasks()
     }
   }
 
@@ -62,7 +74,7 @@ export default function Profile() {
   };
 
   function getUserInfo() {
-    let url = `http://localhost:3001/user/get/profile?username=${current_username}`
+    let url = `https://funtasktic-db.fly.dev/user/get/profile?username=${current_username}`
 
     fetch(url, {
       headers: {
@@ -100,7 +112,8 @@ export default function Profile() {
           setStatAGIPercent(user_data.rows[0]['userstatagi'] / updatedStatTotal)
           setStatVITPercent(user_data.rows[0]['userstatvit'] / updatedStatTotal)
 
-          let url = `http://localhost:3001/user/post?username=${current_username}`
+          setPosts()
+          let url = `https://funtasktic-db.fly.dev/user/post?username=${current_username}`
 
           fetch(url, {
             headers: {
@@ -135,6 +148,64 @@ export default function Profile() {
         }
       });
 
+  }
+
+  function getCompletedTasks() {
+    const id = sessionStorage.getItem('funtasktic-id')
+
+    let url = `https://funtasktic-db.fly.dev/task/get/completed?id=${id}`
+
+    fetch(url, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then(response => {
+        return response.text()
+      })
+      .then(data => {
+        const task_data = JSON.parse(data)
+        if (task_data.rowCount > 0) {
+          var temp_fitness = 0
+          var temp_school = 0
+          var temp_chores = 0
+          var temp_health = 0
+          var temp_social = 0
+          var temp_work = 0
+
+          for (let task in task_data.rows) {
+            switch (task_data.rows[task].tasktype) {
+              case 0:
+                temp_fitness += 1
+                break
+              case 1:
+                temp_school += 1
+                break
+              case 2:
+                temp_chores += 1
+                break
+              case 3:
+                temp_health += 1
+                break
+              case 4:
+                temp_social += 1
+                break
+              case 5:
+                temp_work += 1
+                break
+              default:
+                break
+            }
+          }
+          
+          setStatCompletedFitness(temp_fitness)
+          setStatCompletedSchool(temp_school)
+          setStatCompletedChores(temp_chores)
+          setStatCompletedHealth(temp_health)
+          setStatCompletedSocial(temp_social)
+          setStatCompletedFitness(temp_work)
+        }
+      })
   }
 
   function getPostData(post, grouped_replies) {
@@ -193,27 +264,25 @@ export default function Profile() {
 
   const handleAddPost = (event) => {
     event.preventDefault()
-    event.target.reset()
 
-    const id = commentTarget
-    const isReply = true
+    // const isReply = true
 
-    if (commentTarget == 0) {
-      id = null
-      isReply = false
-    }
+    // if (commentTarget === 0) {
+    //   isReply = false
+    // }
 
     const post_obj = {
       'profileUsername': current_username,
       'postUsername': sessionStorage.getItem('funtasktic-username'),
       'postText': event.target.commentText.value,
-      'isReply': isReply,
-      'replyToPostId': id,
+      'isReply': (commentTarget === 0) ? false : true,
+      'replyToPostId': (commentTarget === 0) ? null : commentTarget
     }
 
+    event.target.reset()
     console.log(post_obj)
 
-    fetch('http://localhost:3001/user/post/add', {
+    fetch('https://funtasktic-db.fly.dev/user/post/add', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -227,7 +296,7 @@ export default function Profile() {
   }
 
   function handleDeletePost(id) {
-    let url = `http://localhost:3001/user/post/delete?id=${id}`
+    let url = `https://funtasktic-db.fly.dev/user/post/delete?id=${id}`
 
     fetch(url, {
       method: 'DELETE',
@@ -242,7 +311,7 @@ export default function Profile() {
   }
 
   //Spider Graph
-  const data = [
+  const stat_data = [
     {
       data: {
         INT: statINTPercent,
@@ -253,6 +322,33 @@ export default function Profile() {
       },
       meta: { color: 'blue' }
     }
+  ];
+
+  const task_chart_data = [
+    {
+      label: 'Fitness',
+      value: statCompletedFitness,
+    },
+    {
+      label: 'School',
+      value: statCompletedSchool,
+    },
+    {
+      label: 'Chores',
+      value: statCompletedChores,
+    },
+    {
+      label: 'Health',
+      value: statCompletedHealth,
+    },
+    {
+      label: 'Social',
+      value: statCompletedSocial,
+    },
+    {
+      label: 'Work',
+      value: statCompletedWork,
+    },
   ];
 
   const captions = {
@@ -328,44 +424,15 @@ export default function Profile() {
             <div className="StatsDataGraph">
               <RadarChart
                 captions={captions}
-                data={data}
+                data={stat_data}
               />
             </div>
           </div>
           <div className="TaskAnalysisContainer">
-            <p className="TaskAnalysisLabel">Task Analysis :</p>
+            <p className="TaskAnalysisLabel">Completed Tasks :</p>
             <div className="TaskAnalysisGraph">
               <DonutChart
-                data={[
-                  {
-                    label: 'Social',
-                    value: 4,
-                  },
-                  {
-                    label: 'Work',
-                    value: 1,
-                  },
-                  {
-                    label: 'Hobbies',
-                    value: 25,
-                  },
-                  {
-                    label: 'Fitness',
-                    value: 25,
-                  },
-                  {
-                    label: 'School',
-                    value: 5,
-                  },
-                  {
-                    label: 'Chores',
-                    value: 20,
-                  },
-                  {
-                    label: 'Health',
-                    value: 20,
-                  },
-                ]}
+                data={task_chart_data}
               />
             </div>
           </div>
@@ -378,7 +445,7 @@ export default function Profile() {
           {posts}
           <Form method='post' onSubmit={handleAddPost} reply className="CommentForm">
             <Form.Field>
-              <input name='commentText' className="CommentFormInput" />
+              <input type='text' name='commentText' className="CommentFormInput" />
             </Form.Field>
             <Button type='submit' className="CommentFormButton" content='Submit' />
           </Form>

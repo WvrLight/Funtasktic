@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './pages.css';
 import {useNavigate} from 'react-router-dom';
 
 export default function Landing_or_signup(props) {
   const navigate = useNavigate();
+
+    useEffect(() => {
+        checkLoginStatus()
+    }, []);
+
+    function checkLoginStatus() {
+        if (sessionStorage.getItem("funtasktic-id") !== null) {
+            navigate('u/')
+        }
+        else {
+        }
+    }
 
     const handleRegister = (event) => {
         event.preventDefault()
@@ -18,7 +30,7 @@ export default function Landing_or_signup(props) {
                 'password': event.target.password.value,
             }
 
-            fetch('http://localhost:3001/user/add_user', {
+            fetch('https://funtasktic-db.fly.dev/user/add_user', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
