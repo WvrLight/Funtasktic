@@ -40,9 +40,12 @@ export default function Landing_or_signup(props) {
                 .then(response => {
                     return response.text();
                 })
+
+            alert("Registration complete. You may now log in.")
+            navigate("/login")
         }
         else {
-
+            alert("Invalid registration! Please check that the password and confirm password are the same.")
         }
     }
 
