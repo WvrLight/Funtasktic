@@ -1,6 +1,6 @@
 A gamified task management system hosted using fly.io services.
 
-![funtasktic.fly.dev](funtasktic.fly.dev)
+[funtasktic.fly.dev](https://funtasktic.fly.dev)
 
 ![image](https://user-images.githubusercontent.com/64080254/218258535-10e6fdd5-b33b-4a6c-a7bc-9e7dbd4b4a07.png)
 ![image](https://user-images.githubusercontent.com/64080254/218258538-cf872039-b0a1-40af-b25b-7936857808db.png)
